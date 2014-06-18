@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="DataView">
+    <page>/DataView.jspx</page>
+  </view>
+  <managed-bean id="__4">
+    <managed-bean-name id="__2">DataViewBean</managed-bean-name>
+    <managed-bean-class id="__1">view.DataViewBean</managed-bean-class>
+    <managed-bean-scope id="__3">pageFlow</managed-bean-scope>
+  </managed-bean>
+</adfc-config>

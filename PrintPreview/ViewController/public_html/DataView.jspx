@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+          xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:h="http://java.sun.com/jsf/html"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+  <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+
+  <!-- ビューの  -->  
+  <f:view beforePhase="#{pageFlowScope.DataViewBean.beforePhaseMethod}">
+    <af:document id="d1">
+      <af:form id="f1">
+        <af:resource type="javascript" source="/js/CustomPrint.js"/>
+        <af:panelStretchLayout id="psl1">
+          <f:facet name="bottom">
+            <af:panelGroupLayout layout="scroll"
+                                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                                 id="pgl2">
+              <af:panelGroupLayout id="pgl3">
+                <af:commandButton text="印刷" id="cb1"
+                                  inlineStyle="font-size:large;">
+                  <af:showPrintablePageBehavior/>
+                </af:commandButton>
+              </af:panelGroupLayout>
+            </af:panelGroupLayout>
+          </f:facet>
+          <f:facet name="center">
+            <af:table var="row" rowBandingInterval="0" id="t1"
+                      value="#{pageFlowScope.DataViewBean.dataList}">
+              <af:column sortable="false" headerText="列1" id="c2" width="200">
+                <af:outputText value="#{row.col1}" id="ot5"/>
+              </af:column>
+              <af:column sortable="false" headerText="列2" id="c5" width="200">
+                <af:outputText value="#{row.col2}" id="ot1"/>
+              </af:column>
+              <af:column sortable="false" headerText="列3" id="c1" width="200">
+                <af:outputText value="#{row.col3}" id="ot3"/>
+              </af:column>
+              <af:column sortable="false" headerText="列4" id="c3" width="200">
+                <af:outputText value="#{row.col4}" id="ot2"/>
+              </af:column>
+            </af:table>
+          </f:facet>
+          <f:facet name="start"/>
+          <f:facet name="end"/>
+          <f:facet name="top">
+            <af:panelGroupLayout id="pgl1" layout="horizontal">
+              <af:outputLabel value="印刷プレビューテスト" id="ol1" inlineStyle="font-size:xx-large;"/>
+              <af:menuBar id="mb1">
+                <af:menu text="menu 1" id="m1"/>
+                <af:menu text="menu 2" id="m2"/>
+                <af:menu text="menu 3" id="m3"/>
+              </af:menuBar>
+              <af:inputText label="Label 1" id="it1"/>
+              <af:inputText label="Label 2" id="it2"/>
+            </af:panelGroupLayout>
+          </f:facet>
+        </af:panelStretchLayout>
+      </af:form>
+    </af:document>
+  </f:view>
+</jsp:root>
